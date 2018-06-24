@@ -2,7 +2,7 @@
 
 namespace MashTodo.Repository
 {
-    public class StatisticsRepository
+    public class StatisticsRepository : IStatisticsRepository
     {
         public StatisticsRepository()
         {

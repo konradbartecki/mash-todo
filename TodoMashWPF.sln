@@ -5,9 +5,11 @@ VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoMashWPF", "TodoMashWPF\TodoMashWPF.csproj", "{3FD13DAF-E199-4CFF-A49D-E4F5135ED398}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MashTodoWPF.Core", "MashTodoWPF.Core\MashTodoWPF.Core.csproj", "{1527251F-DEF4-44FB-8BA6-30C3EF6F9ED3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MashTodoWPF.Core", "MashTodoWPF.Core\MashTodoWPF.Core.csproj", "{1527251F-DEF4-44FB-8BA6-30C3EF6F9ED3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoMashWPF.Backend", "TodoMashWPF.Core\TodoMashWPF.Backend.csproj", "{FA558ADC-DF19-46E9-9A95-966F17F355DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoMashWPF.Backend", "TodoMashWPF.Core\TodoMashWPF.Backend.csproj", "{FA558ADC-DF19-46E9-9A95-966F17F355DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoMashWPF.UnitTests.NetStandard", "TodoMashWPF.UnitTests.NetStandard\TodoMashWPF.UnitTests.NetStandard.csproj", "{8FCE6FD0-4FBA-4332-B4B0-719D4BAD0BFC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{FA558ADC-DF19-46E9-9A95-966F17F355DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA558ADC-DF19-46E9-9A95-966F17F355DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA558ADC-DF19-46E9-9A95-966F17F355DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FCE6FD0-4FBA-4332-B4B0-719D4BAD0BFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FCE6FD0-4FBA-4332-B4B0-719D4BAD0BFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FCE6FD0-4FBA-4332-B4B0-719D4BAD0BFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FCE6FD0-4FBA-4332-B4B0-719D4BAD0BFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,6 +1,6 @@
 ﻿namespace MashTodo.Service
 {
-    public class MashAppConfig
+    public class MashAppConfig : IMashAppConfig
     {
         public string BaseAddress => "http://localhost:5000/api/TodoItems/";
 

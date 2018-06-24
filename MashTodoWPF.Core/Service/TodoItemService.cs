@@ -10,10 +10,10 @@ namespace MashTodo.Service
     public class TodoItemService
     {
         private readonly ITodoItemRepository _Repository;
-        private readonly StatisticsRepository _StatisticsRepository;
-        private readonly MashAppConfig _MashAppConfig;
+        private readonly IStatisticsRepository _StatisticsRepository;
+        private readonly IMashAppConfig _MashAppConfig;
 
-        public TodoItemService(ITodoItemRepository repository, StatisticsRepository statisticsRepository, MashAppConfig mashAppConfig)
+        public TodoItemService(ITodoItemRepository repository, IStatisticsRepository statisticsRepository, IMashAppConfig mashAppConfig)
         {
             _Repository = repository;
             _StatisticsRepository = statisticsRepository;
@@ -22,6 +22,11 @@ namespace MashTodo.Service
 
         public async Task<Guid> Create(string name)
         {
+            if(string.IsNullOrWhiteSpace(name))
+            {
+                throw new ArgumentException("Task name is null or empty");
+            }
+
             bool isCorrectLength = name.Length >= _MashAppConfig.MiminumTaskNameLength && name.Length <= _MashAppConfig.MaximumTaskNameLength;
             if (!isCorrectLength)
             {
