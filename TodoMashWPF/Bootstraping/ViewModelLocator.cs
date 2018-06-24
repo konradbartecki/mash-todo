@@ -21,8 +21,8 @@ namespace MashTodoWPF.Core.ViewModels
             var containerBuilder = new ContainerBuilder();
 
             containerBuilder.RegisterType<AllTodosViewModel>();
-            containerBuilder.RegisterType<MashAppConfig>();
-            containerBuilder.RegisterType<StatisticsRepository>().InstancePerLifetimeScope();
+            containerBuilder.RegisterType<MashAppConfig>().As<IMashAppConfig>();
+            containerBuilder.RegisterType<StatisticsRepository>().As<IStatisticsRepository>().InstancePerLifetimeScope();
             containerBuilder.RegisterType<TodoItemService>();
             containerBuilder.RegisterType<RestClientService>();
             containerBuilder.RegisterType<RemoteTodoItemRepository>().As<ITodoItemRepository>();

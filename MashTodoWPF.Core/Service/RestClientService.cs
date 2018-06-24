@@ -11,7 +11,7 @@ namespace MashTodo.Service
     public class RestClientService
     {
         private static HttpClient _client;
-        private readonly MashAppConfig _MashAppConfig;
+        private readonly IMashAppConfig _MashAppConfig;
 
         private HttpClient Client => _client ?? (_client = CreateClient());
 
@@ -23,7 +23,7 @@ namespace MashTodo.Service
             };
         }
 
-        public RestClientService(MashAppConfig mashAppConfig)
+        public RestClientService(IMashAppConfig mashAppConfig)
         {
             _MashAppConfig = mashAppConfig;
         }

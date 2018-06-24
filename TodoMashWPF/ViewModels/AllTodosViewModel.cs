@@ -197,8 +197,8 @@ namespace TodoMashWPF.ViewModels
                 cfg.PositionProvider = new WindowPositionProvider(
                     parentWindow: Application.Current.MainWindow,
                     corner: Corner.TopRight,
-                    offsetX: 20,
-                    offsetY: 20);
+                    offsetX: 10,
+                    offsetY: 40);
 
                 cfg.LifetimeSupervisor = new TimeAndCountBasedLifetimeSupervisor(
                     notificationLifetime: TimeSpan.FromSeconds(3),

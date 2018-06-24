@@ -25,8 +25,8 @@ namespace TodoMashWPF.Backend
 
             services.AddDbContext<TodoMashDbContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("TodoMashWPFBackendContext")));
-            services.AddScoped<MashAppConfig>();
-            services.AddTransient<StatisticsRepository>();
+            services.AddScoped<IMashAppConfig, MashAppConfig>();
+            services.AddTransient<IStatisticsRepository, StatisticsRepository>();
             services.AddScoped<ITodoItemRepository, TodoItemRepository>();
             services.AddScoped<TodoItemService>();
         }
