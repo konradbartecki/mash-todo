@@ -62,6 +62,11 @@ namespace MashTodo.Service
             return await _Repository.ReadAll();
         }
 
+        public async Task Delete(Guid id)
+        {
+            await _Repository.Delete(id);
+        }
+
         public int GetTasksCreatedCount()
         {
             return _StatisticsRepository.AllTodosCreatedCount;

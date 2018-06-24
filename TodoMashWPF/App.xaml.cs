@@ -7,5 +7,6 @@ namespace TodoMashWPF
     /// </summary>
     public partial class App : Application
     {
+        
     }
 }

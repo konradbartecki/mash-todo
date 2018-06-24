@@ -25,25 +25,6 @@ namespace TodoMashWPF.Backend
             return await _context.ReadAll();
         }
 
-        //// GET: api/TodoItems/5
-        //[HttpGet("{id}")]
-        //public async Task<IActionResult> GetTodoItem([FromRoute] Guid id)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
-
-        //    var todoItem = await _context.TodoItem.FindAsync(id);
-
-        //    if (todoItem == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return Ok(todoItem);
-        //}
-
         //PATCH: api/TodoItems/5
         [HttpPatch]
         public async Task<IActionResult> PatchTodoItem([FromBody] TodoItem todoItem)
@@ -79,25 +60,22 @@ namespace TodoMashWPF.Backend
             return CreatedAtAction("GetTodoItem", new { id = createdId }, todoItem);
         }
 
-        //// DELETE: api/TodoItems/5
-        //[HttpDelete("{id}")]
-        //public async Task<IActionResult> DeleteTodoItem([FromRoute] Guid id)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
+        // DELETE: api/TodoItems/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteTodoItem([FromRoute] Guid id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-        //    var todoItem = await _context.TodoItem.FindAsync(id);
-        //    if (todoItem == null)
-        //    {
-        //        return NotFound();
-        //    }
+            var foundItem = await _context.Find(id);
+            if (foundItem == null)
+                return NotFound($"Item with ID {id} was not found");
 
-        //    _context.TodoItem.Remove(todoItem);
-        //    await _context.SaveChangesAsync();
+            await _context.Delete(id);
 
-        //    return Ok(todoItem);
-        //}
+            return Ok(id);
+        }
     }
 }

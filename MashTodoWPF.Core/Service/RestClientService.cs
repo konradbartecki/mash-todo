@@ -56,9 +56,9 @@ namespace MashTodo.Service
             response.EnsureSuccessStatusCode();
         }
 
-        public async Task DeleteTask(TodoItem task)
+        public async Task DeleteTask(Guid id)
         {
-            var request = new HttpRequestMessage(HttpMethod.Delete, task.Id.ToString());
+            var request = new HttpRequestMessage(HttpMethod.Delete, id.ToString());
             var response = await Client.SendAsync(request);
             response.EnsureSuccessStatusCode();
             var result = await response.Content.ReadAsStringAsync();

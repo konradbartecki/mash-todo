@@ -4,11 +4,25 @@
              xmlns:local="clr-namespace:TodoMashWPF"
              xmlns:model="clr-namespace:TodoMashWPF.Model"
              xmlns:viewmodels="clr-namespace:MashTodoWPF.Core.ViewModels"
+             xmlns:converters="clr-namespace:TodoMashWPF.Converters"
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
-        <model:StatusToIsCompletedConverter x:Key="StatusToIsCompletedConverter" />
-        <model:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
-        <model:InversedBoolToVisiblityConverter x:Key="InversedBoolToVisiblityConverter" />
-        <viewmodels:ViewModelLocator x:Key="ViewModelLocator" />
+        <ResourceDictionary>
+            <model:StatusToIsCompletedConverter x:Key="StatusToIsCompletedConverter" />
+            <model:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+            <model:InversedBoolToVisiblityConverter x:Key="InversedBoolToVisiblityConverter" />
+            <converters:DateTimeOffsetConverter x:Key="DateTimeOffsetConverter"/>
+            <converters:InversedBoolConverter x:Key="InversedBoolConverter"/>
+            <viewmodels:ViewModelLocator x:Key="ViewModelLocator" />
+            <converters:IsCurrentlyEditedStatusToIconConverter x:Key="IsCurrentlyEditedStatusToIconConverter"/>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/ToastNotifications.Messages;component/Themes/Default.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

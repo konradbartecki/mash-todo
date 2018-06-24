@@ -24,7 +24,10 @@ namespace TodoMashWPF.Repositories
             return await _RestClient.CreateTask(item);
         }
 
-        public async Task Delete(Guid guid) => throw new NotImplementedException();
+        public async Task Delete(Guid guid)
+        {
+            await _RestClient.DeleteTask(guid);
+        }
 
         public async Task<IEnumerable<TodoItem>> ReadAll()
         {
