@@ -9,9 +9,10 @@
         xmlns:forms="clr-namespace:Windows.Forms;assembly=Windows.Forms.HintTextBox"
         xmlns:views="clr-namespace:InplaceEditBoxLib.Views;assembly=InplaceEditBoxLib"
         mc:Ignorable="d"
-        Title="TodoMash" Height="300" Width="300" Loaded="Window_Loaded"
+        Title="TodoMash" Height="500" Width="500" Loaded="Window_Loaded"
         Icon="{Binding FallbackValue='flag', Converter={fa:CssClassNameConverter Mode=FromStringToIcon}}"
-        DataContext="{Binding Path=AllTodosViewModel, Source={StaticResource ViewModelLocator}}" MinWidth="190" MinHeight="190">
+        DataContext="{Binding Path=AllTodosViewModel, Source={StaticResource ViewModelLocator}}"
+        MinWidth="300" MinHeight="300">
     <Grid IsEnabled="{Binding IsSending, Converter={StaticResource InversedBoolConverter}}">
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -35,20 +36,20 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <Label
-                            Content="{Binding Name}" 
-                            FontSize="16" 
-                            VerticalAlignment="Center"                             
+                            Content="{Binding Name}"
+                            FontSize="16"
+                            VerticalAlignment="Center"
                             FontFamily="Segoe UI Semibold"
-                            Visibility="{Binding IsCurrentlyEdited, Converter={StaticResource InversedBoolToVisiblityConverter}}"/>
+                            Visibility="{Binding IsCurrentlyEdited, Converter={StaticResource InversedBoolToVisiblityConverter}}" />
                         <TextBox Text="{Binding NewName}"
                                  FontSize="16"
                                  VerticalAlignment="Center"
-                                 Visibility="{Binding IsCurrentlyEdited, Converter={StaticResource BoolToVisibilityConverter}}"/>
-                        <Label 
-                            Content="{Binding ModifiedAt, Converter={StaticResource DateTimeOffsetConverter}}" 
-                            FontSize="16" 
-                            VerticalAlignment="Center" 
-                            HorizontalAlignment="Center" 
+                                 Visibility="{Binding IsCurrentlyEdited, Converter={StaticResource BoolToVisibilityConverter}}" />
+                        <Label
+                            Content="{Binding ModifiedAt, Converter={StaticResource DateTimeOffsetConverter}}"
+                            FontSize="16"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
                             Grid.Column="1" />
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="2">
                             <Button Background="White"

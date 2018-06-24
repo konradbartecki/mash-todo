@@ -11,10 +11,10 @@
             <model:StatusToIsCompletedConverter x:Key="StatusToIsCompletedConverter" />
             <model:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
             <model:InversedBoolToVisiblityConverter x:Key="InversedBoolToVisiblityConverter" />
-            <converters:DateTimeOffsetConverter x:Key="DateTimeOffsetConverter"/>
-            <converters:InversedBoolConverter x:Key="InversedBoolConverter"/>
+            <converters:DateTimeOffsetConverter x:Key="DateTimeOffsetConverter" />
+            <converters:InversedBoolConverter x:Key="InversedBoolConverter" />
             <viewmodels:ViewModelLocator x:Key="ViewModelLocator" />
-            <converters:IsCurrentlyEditedStatusToIconConverter x:Key="IsCurrentlyEditedStatusToIconConverter"/>
+            <converters:IsCurrentlyEditedStatusToIconConverter x:Key="IsCurrentlyEditedStatusToIconConverter" />
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/ToastNotifications.Messages;component/Themes/Default.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />

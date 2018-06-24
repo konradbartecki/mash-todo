@@ -1,29 +1,22 @@
-﻿using FontAwesome.WPF;
+﻿using FontAwesome.WPF.Converters;
 using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Data;
-using System.Windows.Media;
-using FontAwesome.WPF.Converters;
 
 namespace TodoMashWPF.Converters
 {
     public class IsCurrentlyEditedStatusToIconConverter : IValueConverter
     {
-        CssClassNameConverter fontAwesomeConverter = new CssClassNameConverter()
+        private CssClassNameConverter fontAwesomeConverter = new CssClassNameConverter()
         {
             Mode = CssClassConverterMode.FromStringToIcon
         };
 
-
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if(value is bool b)
+            if (value is bool b)
             {
-                if(b == true)
+                if (b == true)
                 {
                     return fontAwesomeConverter.Convert("floppy-o", targetType, parameter, culture);
                 }
@@ -34,6 +27,7 @@ namespace TodoMashWPF.Converters
             }
             return null;
         }
+
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) => throw new NotImplementedException();
     }
 }

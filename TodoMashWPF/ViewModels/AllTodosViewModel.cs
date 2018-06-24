@@ -10,8 +10,8 @@ using System.Windows;
 using System.Windows.Input;
 using ToastNotifications;
 using ToastNotifications.Lifetime;
-using ToastNotifications.Position;
 using ToastNotifications.Messages;
+using ToastNotifications.Position;
 using TodoMashWPF.Helpers;
 using TodoMashWPF.Models;
 
@@ -250,7 +250,7 @@ namespace TodoMashWPF.ViewModels
             }
             finally
             {
-                isSending = false;            
+                isSending = false;
                 IsLoading = false;
             }
         }
@@ -258,7 +258,7 @@ namespace TodoMashWPF.ViewModels
         public async Task RefreshTodos()
         {
             var todos = await _service.ReadAll();
-            if(todos == null)
+            if (todos == null)
             {
                 _notifier.ShowError("Server returned a null list of todos");
                 return;
