@@ -3,14 +3,12 @@ using MashTodo.Repository;
 using MashTodo.Service;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace TodoMashWPF.Repositories
 {
     /// <summary>
-    /// For use in thin clients like WPF or UWP app that are going to send an item instead of saving it to the database 
+    /// For use in thin clients like WPF or UWP app that are going to send an item instead of saving it to the database
     /// </summary>
     public class RemoteTodoItemRepository : ITodoItemRepository
     {
@@ -25,8 +23,17 @@ namespace TodoMashWPF.Repositories
         {
             return await _RestClient.CreateTask(item);
         }
+
         public async Task Delete(Guid guid) => throw new NotImplementedException();
-        public async Task<IEnumerable<TodoItem>> ReadAll() => await _RestClient.GetAllTodos();
-        public Task Update(TodoItem item) => throw new NotImplementedException();
+
+        public async Task<IEnumerable<TodoItem>> ReadAll()
+        {
+            return await _RestClient.GetAllTodos();
+        }
+
+        public async Task Update(TodoItem item)
+        {
+            await _RestClient.UpdateTask(item);
+        }
     }
 }

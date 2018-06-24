@@ -1,13 +1,10 @@
 ﻿using MashTodo.Models;
 using MashTodo.Service;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using TodoMashWPF.Helpers;
@@ -36,7 +33,6 @@ namespace TodoMashWPF.ViewModels
             }
         }
 
-
         public string NewTaskName
         {
             get { return _newTaskName; }
@@ -57,6 +53,14 @@ namespace TodoMashWPF.ViewModels
                     NewTaskName = null;
                 await RefreshTodos();
             }
+            catch (ArgumentException)
+            {
+                //show blue alert
+            }
+            catch (TodoMashException)
+            {
+                //show red alert
+            }
             finally
             {
                 IsSending = false;
@@ -65,12 +69,22 @@ namespace TodoMashWPF.ViewModels
 
         private async void OnTaskStatusChange(object sender)
         {
-            ;
+            try
+            {
+                IsSending = true;
+                await _service.Update((TodoItem)sender);
+                await RefreshTodos();
+            }
+            finally
+            {
+                IsSending = false;
+            }
         }
 
         private ICommand _addTaskCommand;
 
-        public ICommand AddTaskCommand {
+        public ICommand AddTaskCommand
+        {
             get
             {
                 return _addTaskCommand ?? (_addTaskCommand = new DelegateCommand(AddNewTask));
@@ -87,11 +101,10 @@ namespace TodoMashWPF.ViewModels
             }
         }
 
-
         public AllTodosViewModel(TodoItemService service)
         {
             IsLoading = true;
-            _service = service;                 
+            _service = service;
         }
 
         public bool IsLoading
@@ -116,8 +129,6 @@ namespace TodoMashWPF.ViewModels
             }
         }
 
-
-
         public ObservableCollection<TodoItem> TodoItems
         {
             get { return _todoItems; }
@@ -128,19 +139,16 @@ namespace TodoMashWPF.ViewModels
             }
         }
 
-
-
         public async Task Initialize()
         {
             try
             {
                 IsLoading = true;
                 await RefreshTodos();
-
             }
             finally
             {
-                IsLoading = false;        
+                IsLoading = false;
             }
         }
 

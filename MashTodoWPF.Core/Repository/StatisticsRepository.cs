@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MashTodo.Repository
 {
@@ -8,7 +6,6 @@ namespace MashTodo.Repository
     {
         public StatisticsRepository()
         {
-
         }
 
         public StatisticsRepository(int createdCount)
@@ -35,7 +32,5 @@ namespace MashTodo.Repository
         {
             _allTodosCreatedCount++;
         }
-
-
     }
 }

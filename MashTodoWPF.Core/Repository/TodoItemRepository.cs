@@ -15,7 +15,6 @@ namespace MashTodo.Repository
             _DbContext = dbContext;
         }
 
-
         public async Task<IEnumerable<TodoItem>> ReadAll()
         {
             return await _DbContext.TodoItem.ToAsyncEnumerable().ToList();

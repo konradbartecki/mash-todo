@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace MashTodo.Models
 {
@@ -9,7 +6,6 @@ namespace MashTodo.Models
     {
         public TodoItem()
         {
-
         }
 
         public Guid Id { get; set; }

@@ -1,9 +1,6 @@
 ﻿using Autofac;
 using MashTodo.Repository;
 using MashTodo.Service;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using TodoMashWPF.Repositories;
 using TodoMashWPF.ViewModels;
 

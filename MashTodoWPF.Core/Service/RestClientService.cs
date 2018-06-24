@@ -2,7 +2,6 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,6 +45,23 @@ namespace MashTodo.Service
             response.EnsureSuccessStatusCode();
             var result = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<TodoItem>(result).Id;
+        }
+
+        public async Task UpdateTask(TodoItem task)
+        {
+            var jsonPayload = JsonConvert.SerializeObject(task);
+            var request = new HttpRequestMessage(new HttpMethod("PATCH"), "");
+            request.Content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
+            var response = await Client.SendAsync(request);
+            response.EnsureSuccessStatusCode();
+        }
+
+        public async Task DeleteTask(TodoItem task)
+        {
+            var request = new HttpRequestMessage(HttpMethod.Delete, task.Id.ToString());
+            var response = await Client.SendAsync(request);
+            response.EnsureSuccessStatusCode();
+            var result = await response.Content.ReadAsStringAsync();
         }
     }
 }

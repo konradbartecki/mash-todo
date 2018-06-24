@@ -41,18 +41,20 @@ namespace MashTodo.Service
             return item.Id;
         }
 
-        //public async Task<TodoItem> Find(Guid id)
-        //{
-        //    if (id == Guid.Empty)
-        //    {
-        //        return null;
-        //    }
-
-        //    return _Repository.ReadAll().Where(x => x.Id == id).FirstOrDefault();
-        //}
-
-        public void Update(TodoItem item)
+        public async Task<TodoItem> Find(Guid id)
         {
+            if (id == Guid.Empty)
+            {
+                return null;
+            }
+
+            return (await _Repository.ReadAll()).FirstOrDefault(x => x.Id == id);
+        }
+
+        public async Task Update(TodoItem item)
+        {
+            item.ModifiedAt = DateTimeOffset.Now;
+            await _Repository.Update(item);
         }
 
         public async Task<IEnumerable<TodoItem>> ReadAll()

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MashTodo.Models
+﻿namespace MashTodo.Models
 {
     /// <summary>
     /// Status is an enum instead of bool, so I can add "InProgress" status or anything else later

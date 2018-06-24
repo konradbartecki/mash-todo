@@ -6,9 +6,9 @@
              xmlns:viewmodels="clr-namespace:MashTodoWPF.Core.ViewModels"
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
-        <model:StatusToIsCompletedConverter x:Key="StatusToIsCompletedConverter"/>
-        <model:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
-        <model:InversedBoolToVisiblityConverter x:Key="InversedBoolToVisiblityConverter"/>
-        <viewmodels:ViewModelLocator x:Key="ViewModelLocator"/>
+        <model:StatusToIsCompletedConverter x:Key="StatusToIsCompletedConverter" />
+        <model:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <model:InversedBoolToVisiblityConverter x:Key="InversedBoolToVisiblityConverter" />
+        <viewmodels:ViewModelLocator x:Key="ViewModelLocator" />
     </Application.Resources>
 </Application>
